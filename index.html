@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Accesos</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#e9ffff;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .title h1{
+      color:#00a8a8;
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#4f6f6f;
+      font-size:16px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border-radius:22px;
+      padding:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.3s ease;
+      border:2px solid transparent;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#31d7d7;
+    }
+
+    .card h2{
+      color:#00a8a8;
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .info{
+      margin-bottom:12px;
+      color:#444;
+      word-break:break-word;
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .label{
+      font-weight:bold;
+      color:#008080;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      background:#00caca;
+      color:white;
+      text-decoration:none;
+      padding:12px 20px;
+      border-radius:12px;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .btn:hover{
+      background:#00a8a8;
+    }
+
+    @media(max-width:600px){
+      .title h1{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="title">
+      <h1>Panel de Accesos</h1>
+      <p>Accesos rápidos a tus plataformas</p>
+    </div>
+
+    <div class="cards">
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <h2>Condor Dent</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          Stephanie Eusse
+        </div>
+
+        <div class="info">
+          <span class="label">Contraseña:</span><br>
+          KQ5E%e9TQGH(kzxk
+        </div>
+
+        <a class="btn" href="https://condordent.co.uk/wp-admin" target="_blank">
+          Ingresar
+        </a>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <h2>Estilo del Peluquero</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          Stephanie Eusse
+        </div>
+
+        <div class="info">
+          <span class="label">Contraseña:</span><br>
+          d5lb15n)BeqlPh0S
+        </div>
+
+        <a class="btn" href="https://estilodelpeluquero.com/wp-admin" target="_blank">
+          Ingresar
+        </a>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+        <h2>Bola 8 Fiesta Latina</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          seussea90@gmail.com /Stephanie
+        </div>
+
+        <div class="info">
+          <span class="label">Contraseña:</span><br>
+         Ic9m*M#GLpYKWMVH
+        </div>
+
+        <a class="btn" href="https://bola8.co.uk/Fiesta-Latina" target="_blank">
+          Ingresar
+        </a>
+      </div>
+
+
+       <!-- CARD 6 -->
+      <div class="card">
+        <h2>Pool Lounge</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          Stephanie Eusse
+        </div>
+
+        <div class="info">
+          <span class="label">Contraseña:</span><br>
+         ob5B!$!z09Z)cg159*VzbM19
+        </div>
+
+        <a class="btn" href="https://poollounge.co.uk/sportBar" target="_blank">
+          Ingresar
+        </a>
+      </div>
+
+
+      <!-- CARD 4 -->
+      <div class="card">
+        <h2>Morfo</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          Stephanie Eusse
+        </div>
+
+        <div class="info">
+          <span class="label">Contraseña:</span><br>
+          8sDgQozz7zaDSlT)Z6opeVb*
+        </div>
+
+        <a class="btn" href=" https://www.morfomercadeodigital.com/morfo/marketing" target="_blank">
+          Ingresar
+        </a>
+      </div>
+
+       <!-- CARD 5 -->
+      <div class="card">
+        <h2>Number one daycare</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          Stephanie Eusse
+        </div>
+
+        <div class="info">
+          <span class="label">Contraseña:</span><br>
+           py)S%9vnY*9gnsYw1K$bG32G
+        </div>
+
+        <a class="btn" href=" https://number1daycare.com/wp-admin" target="_blank">
+          Ingresar
+        </a>
+
+    </div>
+
+<!-- Videos y notebook lm wordpress -->
+      <div class="card">
+        <h2>Videos instruccion wordpress articulos</h2>
+
+       
+
+        <a class="btn" href=" https://youtu.be/d82nBe-1wcU" target="_blank">
+          Ingresar video 1
+        </a>
+        
+
+         <a class="btn" href=" https://youtu.be/OGxRdDJBpyU" target="_blank">
+          Ingresar video 2
+        </a>
+
+         <a class="btn" href=" https://youtu.be/Kb_MOc4HMM4" target="_blank">
+          Ingresar video 3
+        </a>
+
+          <h2>+Notebook LM  instruccion wordpress articulos</h2>
+
+         <a class="btn" href=" https://notebooklm.google.com/notebook/3c41c2a0-d952-4358-ac8d-45c29982d005" target="_blank">
+         Notebook Lm estos videos info
+        </a>
+
+
+
+    </div>
+
+    <!-- enlaces a google sheets -->
+      <div class="card">
+        <h2>Enlaces a google sheets</h2>
+
+       
+
+        <a class="btn" href=" https://docs.google.com/spreadsheets/d/1lFQUqCNcqy6Du9wXxwC69Zb6E8x4jE_BhMG-az1YK9s/edit?gid=0#gid=0" target="_blank">
+          Hoja de cálculo piezas morfo mes en curso
+        </a>
+        
+
+         <a class="btn" href=" https://docs.google.com/spreadsheets/d/1ZgBq6bKtRzehzSypcAiOGx6CT00e7fh6qO2XFRRP98M/edit?gid=0#gid=0" target="_blank">
+         SEO articulos hoja de cálculo 
+        </a>
+         <!-- enlaces a  -->
+
+         <a class="btn" href=" https://chatgpt.com/g/g-BahnEMrJ0-wordpress-wizard " target="_blank">
+         Chat gpt experto en wordpress wizard.
+        </a>
+
+        <a class="btn" href=" https://chatgpt.com/g/g-68f015147bac8191a377bf4075e45271-copywriter-senior-by-morfo">
+          Chat gpt experto en morfo y redacción contenidos
+        </a>
+
+         
+
+
+
+    </div>
+       
+       
+
+
+    <!-- meta suites Pool lounge bola 8 -->
+      <div class="card">
+        <h2>Meta suites</h2>
+
+        <div class="info">
+          <span class="label">Usuario:</span><br>
+          Stephanie Eusse
+        </div>
+
+        <div class="info">
+          <span class="label">Pool Lounge y Bola 8:</span><br>
+         
+        </div>
+
+        <a class="btn" href="  https://business.facebook.com/latest/composer/?asset_id=365883873281782&business_id=196155376148010&ir_qe_exposed=1&nav_ref=internal_nav&ref=biz_web_content_manager_calendar_view&context_ref=CONTENT_CALENDAR" target="_blank">
+          Ingresar
+        </a> 
+
+    </div>
+    <!-- LAnding full experience -->
+      <div class="card">
+        <h2>Landing</h2>
+
+        <div class="info">
+          <span class="label">Landing:</span><br>
+          Full experience
+        </div>
+
+      
+
+        <a class="btn" href=" https://bola8.co.uk/es/full-experience-musica-latina-en-londres/
+" target="_blank">
+          Español
+        </a>
+
+         <a class="btn" href=" https://bola8.co.uk/full-experience-latin-music-in-london/" target="_blank">
+          Inglés
+        </a>
+
+         <div class="info">
+          <span class="label">Landing:</span><br>
+          Ranchenato
+        </div>
+
+        <a class="btn" href=" https://bola8.co.uk/es/musica-ranchera-y-vallenato-el-alma-de-las-fiestas-latinas-en-londres/
+
+" target="_blank">
+          Español
+        </a>
+
+         <a class="btn" href="  https://bola8.co.uk/ranchera-music-and-vallenato-the-heart-of-latin-parties-in-london/
+" target="_blank">
+          Inglés
+        </a>
+
+        <div class="info">
+          <span class="label">Landing:</span><br>
+          Salsa
+        </div>
+
+        <a class="btn" href=" https://bola8.co.uk/salsa-club-at-elephant-and-castle/
+
+" target="_blank">
+          Español
+        </a>
+
+         <a class="btn" href="  https://bola8.co.uk/es/discoteca-de-salsa-en-elephant-and-castle/
+
+" target="_blank">
+          Inglés
+        </a>
+        
+
+
+
+  </div>
+
+       
+        
+   
+
+  
+
+</body>
+ <!-- Textos de consulta post, carruseles y como montar un fatsoma  -->
+      <div class="card">
+        <h2>Texto pagina web pool lounge</h2>
+
+        <div class="info">
+          <span class="label">página web pool lounge:</span><br>
+          https://poollounge.co.uk/
+        </div>
+
+       <a class="btn" href="https://docs.google.com/document/d/e/2PACX-1vRUXIwWapzNSEGjj8RXJJxOeyRj2cZbP3m8SvsD9_JZucHQTDyX1OiNzLojHgtCsGBudqVyFBwrg64q/pub" target="_blank">
+          Ingresar
+        </a>
+        <h2>Entrenador y textos posts y carruseles docs</h2>
+        <a class="btn" href=" https://docs.google.com/document/d/1U1Ie9uRv3xvOFTCNWzBeiB7H8-RyP0M8SFzJylSaBks/edit?tab=t.0" target="_blank">
+          Ingresar
+        </a>
+       
+    </div>
+</html>
