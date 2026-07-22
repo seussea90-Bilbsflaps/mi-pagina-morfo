@@ -47,30 +47,33 @@
     }
 
     .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-    }
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:18px;
+  align-items:start;
+}
+ 
 
     .card{
-      background:white;
-      border-radius:22px;
-      padding:25px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-      transition:0.3s ease;
-      border:2px solid transparent;
-    }
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s ease;
+  border:2px solid transparent;
+  min-height:260px;
+}
 
     .card:hover{
       transform:translateY(-5px);
       border-color:#31d7d7;
     }
 
-    .card h2{
-      color:#00a8a8;
-      margin-bottom:15px;
-      font-size:24px;
-    }
+  .card h2{
+  color:#00a8a8;
+  margin-bottom:12px;
+  font-size:19px;
+}
 
     .info{
       margin-bottom:12px;
@@ -85,17 +88,18 @@
       color:#008080;
     }
 
-    .btn{
-      display:inline-block;
-      margin-top:15px;
-      background:#00caca;
-      color:white;
-      text-decoration:none;
-      padding:12px 20px;
-      border-radius:12px;
-      transition:0.3s;
-      font-weight:bold;
-    }
+  .btn{
+  display:inline-block;
+  margin-top:10px;
+  background:#00caca;
+  color:white;
+  text-decoration:none;
+  padding:9px 15px;
+  border-radius:10px;
+  transition:0.3s;
+  font-weight:bold;
+  font-size:13px;
+}
 
     .btn:hover{
       background:#00a8a8;
