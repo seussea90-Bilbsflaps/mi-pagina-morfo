@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
@@ -46,38 +44,35 @@
     }
 
     .cards{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-gap:20px;
-align-items:stretch;
-}
-
- 
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+      gap:20px;
+      align-items:stretch;
+    }
 
     .card{
-background:white;
-border-radius:16px;
-padding:18px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-transition:.3s ease;
-border:2px solid transparent;
-height:320px;
-display:flex;
-flex-direction:column;
-overflow:hidden;
-}
-
+      background:white;
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      transition:.3s ease;
+      border:2px solid transparent;
+      height:320px;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
 
     .card:hover{
       transform:translateY(-5px);
       border-color:#31d7d7;
     }
 
-  .card h2{
-  color:#00a8a8;
-  margin-bottom:12px;
-  font-size:19px;
-}
+    .card h2{
+      color:#00a8a8;
+      margin-bottom:12px;
+      font-size:19px;
+    }
 
     .info{
       margin-bottom:12px;
@@ -92,18 +87,18 @@ overflow:hidden;
       color:#008080;
     }
 
-  .btn{
-  display:inline-block;
-  margin-top:10px;
-  background:#00caca;
-  color:white;
-  text-decoration:none;
-  padding:9px 15px;
-  border-radius:10px;
-  transition:0.3s;
-  font-weight:bold;
-  font-size:13px;
-}
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      background:#00caca;
+      color:white;
+      text-decoration:none;
+      padding:9px 15px;
+      border-radius:10px;
+      transition:0.3s;
+      font-weight:bold;
+      font-size:13px;
+    }
 
     .btn:hover{
       background:#00a8a8;
@@ -114,23 +109,28 @@ overflow:hidden;
         font-size:30px;
       }
     }
-  
-.card .info{overflow-wrap:anywhere;margin-bottom:6px;font-size:13px;line-height:1.25;}
-.card h2{margin-bottom:8px;font-size:18px;line-height:1.15;}
-.card .label{display:block;margin-bottom:2px;}
-.card textarea{width:100%;max-width:100%;min-height:38px;resize:vertical;padding:6px;font-size:12px;line-height:1.25;}
-.card>*:last-child{margin-top:auto;}
-.card{overflow-y:auto;}
-.btn{display:block;width:100%;margin-top:4px;padding:8px 10px;text-align:center;}
-button{display:block;width:100%;margin-top:4px;padding:8px 10px;border:none;border-radius:10px;background:#00caca;color:#fff;font-weight:bold;cursor:pointer;}
-button:hover{background:#00a8a8;}
-.card br+br{display:none;}
 
-.cred-view{display:inline-block;}
-.cred-edit{display:none;width:100%;max-width:100%;padding:5px 6px;font-size:13px;line-height:1.25;border:1px solid #00caca;border-radius:6px;font-family:Arial, Helvetica, sans-serif;margin-top:2px;}
-.cred-edit-btn{display:inline-block;width:auto;margin-top:8px;margin-right:6px;padding:7px 12px;font-size:12px;}
-.cred-actions{display:flex;flex-wrap:wrap;gap:6px;}
+    .card .info{overflow-wrap:anywhere;margin-bottom:6px;font-size:13px;line-height:1.25;}
+    .card h2{margin-bottom:8px;font-size:18px;line-height:1.15;}
+    .card .label{display:block;margin-bottom:2px;}
+    .card textarea{width:100%;max-width:100%;min-height:38px;resize:vertical;padding:6px;font-size:12px;line-height:1.25;}
+    .card>*:last-child{margin-top:auto;}
+    .card{overflow-y:auto;}
+    .btn{display:block;width:100%;margin-top:4px;padding:8px 10px;text-align:center;}
+    button{display:block;width:100%;margin-top:4px;padding:8px 10px;border:none;border-radius:10px;background:#00caca;color:#fff;font-weight:bold;cursor:pointer;}
+    button:hover{background:#00a8a8;}
 
+    .tt-accordion{width:100%;}
+    .tt-header{width:100%;text-align:left;background:#00caca;color:#fff;border:none;border-radius:8px;padding:8px 10px;font-weight:bold;font-size:13px;cursor:pointer;margin-top:6px;}
+    .tt-header:hover{background:#00a8a8;}
+    .tt-content{display:none;padding:8px 4px;}
+    .tt-field{margin-bottom:8px;}
+    .tt-label{font-weight:bold;color:#008080;display:block;margin-bottom:2px;font-size:13px;}
+    .tt-textarea{width:100%;max-width:100%;padding:6px;font-size:12px;line-height:1.3;font-family:Consolas,monospace;resize:vertical;}
+    .tt-copy-btn{display:block;width:100%;margin-top:4px;padding:6px 8px;border:none;border-radius:8px;background:#00caca;color:#fff;font-weight:bold;font-size:12px;cursor:pointer;}
+    .tt-copy-btn:hover{background:#00a8a8;}
+    .tt-info{background:#f2ffff;border-radius:8px;padding:8px;margin-bottom:8px;font-size:12px;color:#444;}
+    .tt-info p{margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -140,21 +140,6 @@ button:hover{background:#00a8a8;}
 <p>Accesos rápidos a tus plataformas</p>
 </div>
 <div class="cards">
-<!-- CARD 1 -->
-
-<!-- CARD 2 -->
-
-<!-- CARD 3 -->
-
-<!-- CARD 4 -->
-
-<!-- CARD 5 -->
-
-<!-- CARD 6 -->
-
-<!-- CARD 7 -->
-
-<!-- CARD 8 Google Maps HTML -->
 
 <script>
 function copiarMapa() {
@@ -164,293 +149,133 @@ function copiarMapa() {
   navigator.clipboard.writeText(textarea.value);
   alert("Código copiado correctamente.");
 }
-</script>
-
-<!-- ============================================= -->
-<!-- JAVASCRIPT NUEVO - Edición de Usuario/Contraseña -->
-<!-- ============================================= -->
-<script>
-function toggleCred(cardId) {
-  var views = document.querySelectorAll('.cred-view[data-card="' + cardId + '"]');
-  var edits = document.querySelectorAll('.cred-edit[data-card="' + cardId + '"]');
-  var btn = document.getElementById('cred-btn-' + cardId);
-  var editing = btn.getAttribute('data-editing') === 'true';
-
-  if (!editing) {
-    views.forEach(function(v){ v.style.display = 'none'; });
-    edits.forEach(function(e){ e.style.display = 'block'; });
-    btn.textContent = '💾 Guardar';
-    btn.setAttribute('data-editing', 'true');
-  } else {
-    edits.forEach(function(e){
-      var view = document.getElementById(e.getAttribute('data-view-id'));
-      if (view) view.textContent = e.value;
-      try { localStorage.setItem('cred_' + e.id, e.value); } catch(err) {}
-      e.style.display = 'none';
-    });
-    views.forEach(function(v){ v.style.display = 'inline-block'; });
-    btn.textContent = '✏️ Editar';
-    btn.setAttribute('data-editing', 'false');
-  }
+function copyField(id) {
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.select();
+  el.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(el.value);
+  alert("Copiado correctamente.");
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.cred-edit').forEach(function(e){
-    var saved = null;
-    try { saved = localStorage.getItem('cred_' + e.id); } catch(err) {}
-    if (saved !== null) {
-      e.value = saved;
-      var view = document.getElementById(e.getAttribute('data-view-id'));
-      if (view) view.textContent = saved;
+function toggleAccordion(id) {
+  var contents = document.querySelectorAll('.tt-content');
+  contents.forEach(function(c){
+    if (c.id === id) {
+      c.style.display = (c.style.display === 'block') ? 'none' : 'block';
+    } else {
+      c.style.display = 'none';
     }
   });
-});
+}
 </script>
 
 <div class="card">
 <h2>Condor Dent</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="condordent-user-view" data-card="condordent">Stephanie Eusse</span>
-<input class="cred-edit" id="condordent-user-edit" data-card="condordent" data-view-id="condordent-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://condordent.co.uk/wp-admin" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="condordent-pass-view" data-card="condordent">KQ5E%e9TQGH(kzxk</span>
-<input class="cred-edit" id="condordent-pass-edit" data-card="condordent" data-view-id="condordent-pass-view" value="KQ5E%e9TQGH(kzxk"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-condordent" data-editing="false" onclick="toggleCred('condordent')">✏️ Editar</button>
-<a class="btn" href="https://condordent.co.uk/wp-admin" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Estilo del Peluquero</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="peluquero-user-view" data-card="peluquero">Stephanie Eusse</span>
-<input class="cred-edit" id="peluquero-user-edit" data-card="peluquero" data-view-id="peluquero-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://estilodelpeluquero.com/wp-admin" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="peluquero-pass-view" data-card="peluquero">d5lb15n)BeqlPh0S</span>
-<input class="cred-edit" id="peluquero-pass-edit" data-card="peluquero" data-view-id="peluquero-pass-view" value="d5lb15n)BeqlPh0S"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-peluquero" data-editing="false" onclick="toggleCred('peluquero')">✏️ Editar</button>
-<a class="btn" href="https://estilodelpeluquero.com/wp-admin" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Bola 8 Fiesta Latina</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="bola8fl-user-view" data-card="bola8fl">seussea90@gmail.com /Stephanie</span>
-<input class="cred-edit" id="bola8fl-user-edit" data-card="bola8fl" data-view-id="bola8fl-user-view" value="seussea90@gmail.com /Stephanie"/>
+<a class="btn" href="https://bola8.co.uk/Fiesta-Latina" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="bola8fl-pass-view" data-card="bola8fl">Ic9m*M#GLpYKWMVH</span>
-<input class="cred-edit" id="bola8fl-pass-edit" data-card="bola8fl" data-view-id="bola8fl-pass-view" value="Ic9m*M#GLpYKWMVH"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-bola8fl" data-editing="false" onclick="toggleCred('bola8fl')">✏️ Editar</button>
-<a class="btn" href="https://bola8.co.uk/Fiesta-Latina" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Pool Lounge</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="poollounge-user-view" data-card="poollounge">Stephanie Eusse</span>
-<input class="cred-edit" id="poollounge-user-edit" data-card="poollounge" data-view-id="poollounge-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://poollounge.co.uk/sportBar" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="poollounge-pass-view" data-card="poollounge">ob5B!$!z09Z)cg159*VzbM19</span>
-<input class="cred-edit" id="poollounge-pass-edit" data-card="poollounge" data-view-id="poollounge-pass-view" value="ob5B!$!z09Z)cg159*VzbM19"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-poollounge" data-editing="false" onclick="toggleCred('poollounge')">✏️ Editar</button>
-<a class="btn" href="https://poollounge.co.uk/sportBar" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Morfo</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="morfo-user-view" data-card="morfo">Stephanie Eusse</span>
-<input class="cred-edit" id="morfo-user-edit" data-card="morfo" data-view-id="morfo-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://www.morfomercadeodigital.com/morfo/marketing" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="morfo-pass-view" data-card="morfo">8sDgQozz7zaDSlT)Z6opeVb*</span>
-<input class="cred-edit" id="morfo-pass-edit" data-card="morfo" data-view-id="morfo-pass-view" value="8sDgQozz7zaDSlT)Z6opeVb*"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-morfo" data-editing="false" onclick="toggleCred('morfo')">✏️ Editar</button>
-<a class="btn" href=" https://www.morfomercadeodigital.com/morfo/marketing" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Number one daycare</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="daycare-user-view" data-card="daycare">Stephanie Eusse</span>
-<input class="cred-edit" id="daycare-user-edit" data-card="daycare" data-view-id="daycare-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://number1daycare.com/wp-admin" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="daycare-pass-view" data-card="daycare">py)S%9vnY*9gnsYw1K$bG32G</span>
-<input class="cred-edit" id="daycare-pass-edit" data-card="daycare" data-view-id="daycare-pass-view" value="py)S%9vnY*9gnsYw1K$bG32G"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-daycare" data-editing="false" onclick="toggleCred('daycare')">✏️ Editar</button>
-<a class="btn" href=" https://number1daycare.com/wp-admin" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Willow Nursery</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="willow-user-view" data-card="willow">Stephanie Eusse</span>
-<input class="cred-edit" id="willow-user-edit" data-card="willow" data-view-id="willow-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://thewillownursery.co.uk/wp-admin/" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Contraseña:</span><br/>
-<span class="cred-view" id="willow-pass-view" data-card="willow">LCR%m%%iGF2oiUAmHE0ct@&amp;b</span>
-<input class="cred-edit" id="willow-pass-edit" data-card="willow" data-view-id="willow-pass-view" value="LCR%m%%iGF2oiUAmHE0ct@&amp;b"/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-willow" data-editing="false" onclick="toggleCred('willow')">✏️ Editar</button>
-<a class="btn" href="https://thewillownursery.co.uk/wp-admin/" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>🗺️ Google Maps</h2>
 <div class="info">
 <span class="label">Código HTML:</span><br/>
 <textarea id="googleMapsCode" rows="12" style="width:100%; font-family:Consolas, monospace; padding:10px; resize:vertical;">
-
 <iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9936.17008101039!2d-0.0984164!3d51.4940872!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604a1e757c51d%3A0x22323335565cece4!2sBola%208%20-%20The%20Pool%20Lounge!5e0!3m2!1ses!2sco!4v1719601541457!5m2!1ses!2sco" style="border:0;" width="600"></iframe>
-
     </textarea>
 <br/><br/>
 <button onclick="copiarMapa()">📋 Copiar código</button>
 </div>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h2>🦷 Condordent</h2>
-<div class="info"><span class="label">🇪🇸 Imagen ES</span><br/><textarea rows="1">https://condordent.co.uk/wp-content/uploads/2025/12/articulo-85-2.jpg</textarea></div>
-<div class="info"><span class="label">🇬🇧 Imagen EN</span><br/><textarea rows="1">https://condordent.co.uk/wp-content/uploads/2025/09/articulo-99.jpg</textarea></div>
-<div class="info"><span class="label">🔗 Enlace</span><br/><textarea rows="1">https://aeronaclinic.co.uk/pp/portal/clinic/Mjg0/login</textarea></div>
-</div><div class="card">
-<!-- CARD Poollounge -->
+<div class="info"><span class="label">🇪🇸 Imagen ES</span><br/><textarea class="tt-textarea" id="condordent-img-es" rows="1">https://condordent.co.uk/wp-content/uploads/2025/12/articulo-85-2.jpg</textarea><button class="tt-copy-btn" onclick="copyField('condordent-img-es')">📋 Copy</button></div>
+<div class="info"><span class="label">🇬🇧 Imagen EN</span><br/><textarea class="tt-textarea" id="condordent-img-en" rows="1">https://condordent.co.uk/wp-content/uploads/2025/09/articulo-99.jpg</textarea><button class="tt-copy-btn" onclick="copyField('condordent-img-en')">📋 Copy</button></div>
+<div class="info"><span class="label">🔗 Enlace</span><br/><textarea class="tt-textarea" id="condordent-link" rows="1">https://aeronaclinic.co.uk/pp/portal/clinic/Mjg0/login</textarea><button class="tt-copy-btn" onclick="copyField('condordent-link')">📋 Copy</button></div>
+</div>
+
+<div class="card">
 <h2>⚡ Pool Lounge</h2>
-<div class="info"><span class="label">Shortcodes</span><br/><textarea rows="4">[njwa_button id="720"]</textarea></div>
-</div><div class="card">
-<!-- Card Bola 8 -->
+<div class="info"><span class="label">Shortcodes</span><br/><textarea class="tt-textarea" id="poollounge-shortcode" rows="4">[njwa_button id="720"]</textarea><button class="tt-copy-btn" onclick="copyField('poollounge-shortcode')">📋 Copy</button></div>
+</div>
+
+<div class="card">
 <h2>🎱 Bola 8</h2>
-<div class="info"><span class="label">🇪🇸 Shortcodes</span><br/><textarea rows="2">[whatsapp phone="447895247286"]Reserva tu mesa en BOLA8[/whatsapp]</textarea></div>
-<div class="info"><span class="label">🇬🇧 Shortcodes</span><br/><textarea rows="2">[whatsapp phone="447895247286"]Book your table at BOLA8[/whatsapp]</textarea></div>
-</div><div class="card">
-<!-- CARD estilodepeluquero-->
+<div class="info"><span class="label">🇪🇸 Shortcodes</span><br/><textarea class="tt-textarea" id="bola8-shortcode-es" rows="2">[whatsapp phone="447895247286"]Reserva tu mesa en BOLA8[/whatsapp]</textarea><button class="tt-copy-btn" onclick="copyField('bola8-shortcode-es')">📋 Copy</button></div>
+<div class="info"><span class="label">🇬🇧 Shortcodes</span><br/><textarea class="tt-textarea" id="bola8-shortcode-en" rows="2">[whatsapp phone="447895247286"]Book your table at BOLA8[/whatsapp]</textarea><button class="tt-copy-btn" onclick="copyField('bola8-shortcode-en')">📋 Copy</button></div>
+</div>
+
+<div class="card">
 <h2>💈 El Estilo del Peluquero</h2>
-<div class="info"><span class="label">🇪🇸 Imagen</span><br/><textarea rows="1">https://estilodelpeluquero.com/wp-content/uploads/2020/06/WhatsApp-Image-2020-02-14-at-4-58-25-PM-1_1-2.jpeg</textarea></div>
-<div class="info"><span class="label">🔗 Enlace</span><br/><textarea rows="1">https://api.whatsapp.com/send?phone=573014850634&amp;text=Hola%20quiero%20mas%20informacion</textarea></div>
-</div><div class="card">
+<div class="info"><span class="label">🇪🇸 Imagen</span><br/><textarea class="tt-textarea" id="peluquero-img" rows="1">https://estilodelpeluquero.com/wp-content/uploads/2020/06/WhatsApp-Image-2020-02-14-at-4-58-25-PM-1_1-2.jpeg</textarea><button class="tt-copy-btn" onclick="copyField('peluquero-img')">📋 Copy</button></div>
+<div class="info"><span class="label">🔗 Enlace</span><br/><textarea class="tt-textarea" id="peluquero-link" rows="1">https://api.whatsapp.com/send?phone=573014850634&text=Hola%20quiero%20mas%20informacion</textarea><button class="tt-copy-btn" onclick="copyField('peluquero-link')">📋 Copy</button></div>
+</div>
+
+<div class="card">
 <h2>Videos instruccion wordpress articulos</h2>
-<a class="btn" href=" https://youtu.be/d82nBe-1wcU" target="_blank">
-          Ingresar video 1
-        </a>
-<a class="btn" href=" https://youtu.be/OGxRdDJBpyU" target="_blank">
-          Ingresar video 2
-        </a>
-<a class="btn" href=" https://youtu.be/Kb_MOc4HMM4" target="_blank">
-          Ingresar video 3
-        </a>
-<h2>+Notebook LM  instruccion wordpress articulos</h2>
-<a class="btn" href=" https://notebooklm.google.com/notebook/3c41c2a0-d952-4358-ac8d-45c29982d005" target="_blank">
-         Notebook Lm estos videos info
-        </a>
-</div><div class="card">
+<a class="btn" href="https://youtu.be/d82nBe-1wcU" target="_blank">Ingresar video 1</a>
+<a class="btn" href="https://youtu.be/OGxRdDJBpyU" target="_blank">Ingresar video 2</a>
+<a class="btn" href="https://youtu.be/Kb_MOc4HMM4" target="_blank">Ingresar video 3</a>
+<h2>+Notebook LM instruccion wordpress articulos</h2>
+<a class="btn" href="https://notebooklm.google.com/notebook/3c41c2a0-d952-4358-ac8d-45c29982d005" target="_blank">Notebook Lm estos videos info</a>
+</div>
+
+<div class="card">
 <h2>Enlaces a google sheets</h2>
-<a class="btn" href=" https://docs.google.com/spreadsheets/d/1lFQUqCNcqy6Du9wXxwC69Zb6E8x4jE_BhMG-az1YK9s/edit?gid=0#gid=0" target="_blank">
-          Hoja de cálculo piezas morfo mes en curso
-        </a>
-<a class="btn" href=" https://docs.google.com/spreadsheets/d/1ZgBq6bKtRzehzSypcAiOGx6CT00e7fh6qO2XFRRP98M/edit?gid=0#gid=0" target="_blank">
-         SEO articulos hoja de cálculo 
-        </a>
-<!-- enlaces a  -->
-<a class="btn" href=" https://chatgpt.com/g/g-BahnEMrJ0-wordpress-wizard " target="_blank">
-         Chat gpt experto en wordpress wizard.
-        </a>
-<a class="btn" href=" https://chatgpt.com/g/g-68f015147bac8191a377bf4075e45271-copywriter-senior-by-morfo">
-          Chat gpt experto en morfo y redacción contenidos
-        </a>
-</div><div class="card">
+<a class="btn" href="https://docs.google.com/spreadsheets/d/1lFQUqCNcqy6Du9wXxwC69Zb6E8x4jE_BhMG-az1YK9s/edit?gid=0#gid=0" target="_blank">Hoja de cálculo piezas morfo mes en curso</a>
+<a class="btn" href="https://docs.google.com/spreadsheets/d/1ZgBq6bKtRzehzSypcAiOGx6CT00e7fh6qO2XFRRP98M/edit?gid=0#gid=0" target="_blank">SEO articulos hoja de cálculo</a>
+<a class="btn" href="https://chatgpt.com/g/g-BahnEMrJ0-wordpress-wizard" target="_blank">Chat gpt experto en wordpress wizard.</a>
+<a class="btn" href="https://chatgpt.com/g/g-68f015147bac8191a377bf4075e45271-copywriter-senior-by-morfo">Chat gpt experto en morfo y redacción contenidos</a>
+</div>
+
+<div class="card">
 <h2>Meta suites</h2>
-<div class="info">
-<span class="label">Usuario:</span><br/>
-<span class="cred-view" id="metasuites-user-view" data-card="metasuites">Stephanie Eusse</span>
-<input class="cred-edit" id="metasuites-user-edit" data-card="metasuites" data-view-id="metasuites-user-view" value="Stephanie Eusse"/>
+<a class="btn" href="https://business.facebook.com/latest/composer/?asset_id=365883873281782&business_id=196155376148010&ir_qe_exposed=1&nav_ref=internal_nav&ref=biz_web_content_manager_calendar_view&context_ref=CONTENT_CALENDAR" target="_blank">Ingresar</a>
 </div>
-<div class="info">
-<span class="label">Pool Lounge y Bola 8:</span><br/>
-</div>
-<div class="cred-actions">
-<button class="btn cred-edit-btn" id="cred-btn-metasuites" data-editing="false" onclick="toggleCred('metasuites')">✏️ Editar</button>
-<a class="btn" href="  https://business.facebook.com/latest/composer/?asset_id=365883873281782&amp;business_id=196155376148010&amp;ir_qe_exposed=1&amp;nav_ref=internal_nav&amp;ref=biz_web_content_manager_calendar_view&amp;context_ref=CONTENT_CALENDAR" target="_blank">
-          Ingresar
-        </a>
-</div>
-</div><div class="card">
+
+<div class="card">
 <h2>Landing</h2>
-<div class="info">
-<span class="label">Landing:</span><br/>
-          Full experience
-        </div>
-<a class="btn" href=" https://bola8.co.uk/es/full-experience-musica-latina-en-londres/
-" target="_blank">
-          Español
-        </a>
-<a class="btn" href=" https://bola8.co.uk/full-experience-latin-music-in-london/" target="_blank">
-          Inglés
-        </a>
-<div class="info">
-<span class="label">Landing:</span><br/>
-          Ranchenato
-        </div>
-<a class="btn" href=" https://bola8.co.uk/es/musica-ranchera-y-vallenato-el-alma-de-las-fiestas-latinas-en-londres/
+<div class="info"><span class="label">Landing:</span><br/>Full experience</div>
+<a class="btn" href="https://bola8.co.uk/es/full-experience-musica-latina-en-londres/" target="_blank">Español</a>
+<a class="btn" href="https://bola8.co.uk/full-experience-latin-music-in-london/" target="_blank">Inglés</a>
+<div class="info"><span class="label">Landing:</span><br/>Ranchenato</div>
+<a class="btn" href="https://bola8.co.uk/es/musica-ranchera-y-vallenato-el-alma-de-las-fiestas-latinas-en-londres/" target="_blank">Español</a>
+<a class="btn" href="https://bola8.co.uk/ranchera-music-and-vallenato-the-heart-of-latin-parties-in-london/" target="_blank">Inglés</a>
+<div class="info"><span class="label">Landing:</span><br/>Salsa</div>
+<a class="btn" href="https://bola8.co.uk/salsa-club-at-elephant-and-castle/" target="_blank">Español</a>
+<a class="btn" href="https://bola8.co.uk/es/discoteca-de-salsa-en-elephant-and-castle/" target="_blank">Inglés</a>
+</div>
 
-" target="_blank">
-          Español
-        </a>
-<a class="btn" href="  https://bola8.co.uk/ranchera-music-and-vallenato-the-heart-of-latin-parties-in-london/
-" target="_blank">
-          Inglés
-        </a>
-<div class="info">
-<span class="label">Landing:</span><br/>
-          Salsa
-        </div>
-<a class="btn" href=" https://bola8.co.uk/salsa-club-at-elephant-and-castle/
-
-" target="_blank">
-          Español
-        </a>
-<a class="btn" href="  https://bola8.co.uk/es/discoteca-de-salsa-en-elephant-and-castle/
-
-" target="_blank">
-          Inglés
-        </a>
-</div><div class="card">
+<div class="card">
 <h2>Texto pagina web pool lounge</h2>
 <div class="info">
 <span class="label">página web pool lounge:</span><br/>
@@ -462,25 +287,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <textarea class="tt-textarea" id="plw-prompt" rows="8">Acorta el siguiente texto a un máximo de 140 caracteres, manteniendo toda la información esencial. No omitas ningún dato importante; utiliza abreviaciones, reformula las frases o haz el texto más conciso sin perder significado. El resultado debe ser claro, natural y apto para la descripción corta de un evento en Eventbrite.</textarea>
 <button class="tt-copy-btn" onclick="copyField('plw-prompt')">📋 Copy</button>
 </div>
-<a class="btn" href="https://docs.google.com/document/d/e/2PACX-1vRUXIwWapzNSEGjj8RXJJxOeyRj2cZbP3m8SvsD9_JZucHQTDyX1OiNzLojHgtCsGBudqVyFBwrg64q/pub" target="_blank">
-          Ingresar
-        </a>
-<h2>Entrenador y textos posts  docs</h2>
-<a class="btn" href=" https://docs.google.com/document/d/1U1Ie9uRv3xvOFTCNWzBeiB7H8-RyP0M8SFzJylSaBks/edit?tab=t.0" target="_blank">
-          Ingresar
-        </a>
-<a class="btn" href="https://docs.google.com/document/d/e/2PACX-1vRUXIwWapzNSEGjj8RXJJxOeyRj2cZbP3m8SvsD9_JZucHQTDyX1OiNzLojHgtCsGBudqVyFBwrg64q/pub" target="_blank">
-          Ingresar
-        </a>
+<a class="btn" href="https://docs.google.com/document/d/e/2PACX-1vRUXIwWapzNSEGjj8RXJJxOeyRj2cZbP3m8SvsD9_JZucHQTDyX1OiNzLojHgtCsGBudqVyFBwrg64q/pub" target="_blank">Ingresar</a>
+<h2>Entrenador y textos posts docs</h2>
+<a class="btn" href="https://docs.google.com/document/d/1U1Ie9uRv3xvOFTCNWzBeiB7H8-RyP0M8SFzJylSaBks/edit?tab=t.0" target="_blank">Ingresar</a>
+<a class="btn" href="https://docs.google.com/document/d/e/2PACX-1vRUXIwWapzNSEGjj8RXJJxOeyRj2cZbP3m8SvsD9_JZucHQTDyX1OiNzLojHgtCsGBudqVyFBwrg64q/pub" target="_blank">Ingresar</a>
 <h2>Entrenador de textos carrusel y carrusel de esta semana + fotos</h2>
-<a class="btn" href=" https://docs.google.com/document/d/17QzS_p5UiptaeDVCUc95OkMhPCDNhh7RyZ5DW3R3dPM/edit?tab=t.0" target="_blank">
-          Ingresar
-        </a>
+<a class="btn" href="https://docs.google.com/document/d/17QzS_p5UiptaeDVCUc95OkMhPCDNhh7RyZ5DW3R3dPM/edit?tab=t.0" target="_blank">Ingresar</a>
 </div>
 
-<!-- ============================================= -->
-<!-- INICIO TARJETA: 📝 Prompt Posts -->
-<!-- ============================================= -->
 <div class="card">
 <h2>📝 Prompt Posts</h2>
 <div class="info">
@@ -492,21 +306,13 @@ Extrae toda la información visible de la pieza gráfica y redacta el contenido 
 La estructura del texto debe seguir este orden (sólo incluye los apartados que aparezcan en la imagen):
 
 Nombre del evento.
-
 Breve introducción invitando a vivir la experiencia.
-
 Promoción (si existe).
-
 DJ invitado o artistas (si aparecen).
-
 Mujeres gratis (si aplica).
-
 Precio del cover (si aparece).
-
 Hora de la última entrada (si aparece).
-
 Open Until (si aparece).
-
 Dirección completa de Bola 8 Pool Lounge.
 
 Info y Reservas: +44 7895 247286
@@ -515,25 +321,15 @@ Tickets en Fatsoma:
 https://fatso.ma/f6n5r
 
 Requisitos importantes:
-
 Escribe en español latino neutro.
-
 Utiliza un tono urbano, festivo y emocionante.
-
 Añade emojis de forma natural (🎉🍻🎧🔥💃🕺🥂🎟️⚽🍾✨).
-
 No inventes información que no aparezca en la imagen.
-
 Si algún dato no existe en la pieza gráfica simplemente omítelo.
-
 Haz que el texto invite a reservar cuanto antes y transmita sensación de exclusividad.
-
 Mantén una excelente ortografía y una redacción fluida.
-
 Finaliza únicamente con 15 hashtags relacionados con la fiesta, la música latina, la vida nocturna, Londres, Bola 8 Pool Lounge y el tipo de evento.
-
-No escribas el título "15 hashtags" ni ningún encabezado antes de ellos; simplemente colócalos al final del texto. Otra cosa para tener en cuenta: Los djs siempre son: Dj Deoh no Jeoh, Dj Gato no Goto, Dilelucho, Dj Marlon, Chris Rola, Dj SAM y a veces el sponsor es NOCTURA
-</textarea>
+No escribas el título "15 hashtags" ni ningún encabezado antes de ellos; simplemente colócalos al final del texto. Otra cosa para tener en cuenta: Los djs siempre son: Dj Deoh no Jeoh, Dj Gato no Goto, Dilelucho, Dj Marlon, Chris Rola, Dj SAM y a veces el sponsor es NOCTURA</textarea>
 <button class="tt-copy-btn" onclick="copyField('post-es')">📋 Copiar</button>
 </div>
 <div class="info">
@@ -541,27 +337,17 @@ No escribas el título "15 hashtags" ni ningún encabezado antes de ellos; simpl
 <textarea class="tt-textarea" id="post-en" rows="10">Now adapt the previous text into British English, maintaining an urban, modern, natural and engaging style, as if you were inviting people to an unforgettable night at The Pool Lounge.
 
 Do not translate literally.
-
 Adapt the wording so it sounds completely natural for a UK audience while keeping the same persuasive tone and excitement.
-
 Keep exactly the same structure as the original text and include only the sections that exist.
 
 Event name.
-
 Short introduction.
-
 Promotion (if available).
-
 Guest DJ or performers.
-
 Free entry for ladies (if applicable).
-
 Cover charge (if shown).
-
 Last entry time (if shown).
-
 Open Until (if shown).
-
 The Pool Lounge address.
 
 Info & Bookings:
@@ -571,32 +357,19 @@ Tickets on Fatsoma:
 https://fatso.ma/f6n5r
 
 Requirements:
-
 Write in British English.
-
 Use a modern, energetic nightlife tone.
-
 Naturally include emojis (🎉🍻🎧🔥💃🕺🥂🎟️⚽🍾✨).
-
 Do not invent information.
-
 Omit any section that does not exist.
-
 Create FOMO and encourage early bookings.
-
 Use excellent grammar and spelling.
-
 Finish only with 15 hashtags related to London nightlife, Latin music, The Pool Lounge and the event.
-
 Do not write "15 hashtags" or any heading before them.</textarea>
 <button class="tt-copy-btn" onclick="copyField('post-en')">📋 Copiar</button>
 </div>
 </div>
-<!-- FIN TARJETA: 📝 Prompt Posts -->
 
-<!-- ============================================= -->
-<!-- INICIO TARJETA: 🎠 Prompt Carruseles -->
-<!-- ============================================= -->
 <div class="card">
 <h2>🎠 Prompt Carruseles</h2>
 <div class="info">
@@ -640,75 +413,23 @@ Do not write any heading such as "Hashtags" or "15 Hashtags"; simply place the h
 <button class="tt-copy-btn" onclick="copyField('carousel-en')">📋 Copiar</button>
 </div>
 </div>
-<!-- FIN TARJETA: 🎠 Prompt Carruseles -->
 
-<!-- ============================================= -->
-<!-- CSS NUEVO - Tickets Tool -->
-<!-- ============================================= -->
-<style>
-.tt-accordion{width:100%;}
-.tt-header{width:100%;text-align:left;background:#00caca;color:#fff;border:none;border-radius:8px;padding:8px 10px;font-weight:bold;font-size:13px;cursor:pointer;margin-top:6px;}
-.tt-header:hover{background:#00a8a8;}
-.tt-content{display:none;padding:8px 4px;}
-.tt-field{margin-bottom:8px;}
-.tt-label{font-weight:bold;color:#008080;display:block;margin-bottom:2px;font-size:13px;}
-.tt-textarea{width:100%;max-width:100%;padding:6px;font-size:12px;line-height:1.3;font-family:Consolas,monospace;resize:vertical;}
-.tt-copy-btn{display:block;width:100%;margin-top:4px;padding:6px 8px;border:none;border-radius:8px;background:#00caca;color:#fff;font-weight:bold;font-size:12px;cursor:pointer;}
-.tt-copy-btn:hover{background:#00a8a8;}
-.tt-info{background:#f2ffff;border-radius:8px;padding:8px;margin-bottom:8px;font-size:12px;color:#444;}
-.tt-info p{margin-bottom:3px;}
-</style>
-
-<!-- ============================================= -->
-<!-- JAVASCRIPT NUEVO - Tickets Tool -->
-<!-- ============================================= -->
-<script>
-function copyField(id) {
-  var el = document.getElementById(id);
-  if(!el) return;
-  el.select();
-  el.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(el.value);
-  alert("Copiado correctamente.");
-}
-
-function toggleAccordion(id) {
-  var contents = document.querySelectorAll('.tt-content');
-  contents.forEach(function(c){
-    if (c.id === id) {
-      c.style.display = (c.style.display === 'block') ? 'none' : 'block';
-    } else {
-      c.style.display = 'none';
-    }
-  });
-}
-</script>
-
-<!-- ============================================= -->
-<!-- INICIO TARJETA: 🎫 Tickets Tool -->
-<!-- ============================================= -->
 <div class="card">
 <h2>🎫 Tickets Tool</h2>
 <div class="tt-accordion">
 
-<!-- ============================================= -->
-<!-- TICKET 1: 💃 Ladies Guestlist -->
-<!-- ============================================= -->
 <button class="tt-header" onclick="toggleAccordion('tt1')">💃 Ladies Guestlist</button>
 <div class="tt-content" id="tt1">
-
 <div class="tt-field">
 <span class="tt-label">Nombre</span>
 <textarea class="tt-textarea" id="tt1-name" rows="2">💃 Ladies Guestlist - Entry Before 23:30</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt1-name')">📋 Copy</button>
 </div>
-
 <div class="tt-info">
 <p>💰 Price: Free ticket</p>
 <p>🎟️ Tickets: 20 Tickets</p>
 <p>⏰ Sell Until: el dia de la fiesta se vende hasta las 22:00 hrs</p>
 </div>
-
 <div class="tt-field">
 <span class="tt-label">Description</span>
 <textarea class="tt-textarea" id="tt1-desc" rows="14">💃📝 Limited guestlist entry available through promoters and partners only. Entry must be before 23:30. ⏰
@@ -725,28 +446,20 @@ function toggleAccordion(id) {
 • 💸 No refunds</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt1-desc')">📋 Copy</button>
 </div>
-
 </div>
-<!-- FIN TICKET 1 -->
 
-<!-- ============================================= -->
-<!-- TICKET 2: 🟦 Early Entry Ticket -->
-<!-- ============================================= -->
 <button class="tt-header" onclick="toggleAccordion('tt2')">🟦 Early Entry Ticket</button>
 <div class="tt-content" id="tt2">
-
 <div class="tt-field">
 <span class="tt-label">Nombre</span>
 <textarea class="tt-textarea" id="tt2-name" rows="2">🟦 Early Entry Ticket - Entry Before 23:30</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt2-name')">📋 Copy</button>
 </div>
-
 <div class="tt-info">
 <p>💰 Price: 7 £</p>
 <p>🎟️ Tickets: 200 Tickets</p>
 <p>⏰ Sell Until: el dia de la fiesta se vende hasta las 22:00 hrs</p>
 </div>
-
 <div class="tt-field">
 <span class="tt-label">Description</span>
 <textarea class="tt-textarea" id="tt2-desc" rows="14">🟦📝 Limited guestlist entry available through promoters and partners only. Entry must be before 23:30. ⏰
@@ -763,28 +476,20 @@ function toggleAccordion(id) {
 • 💸 No refunds</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt2-desc')">📋 Copy</button>
 </div>
-
 </div>
-<!-- FIN TICKET 2 -->
 
-<!-- ============================================= -->
-<!-- TICKET 3: 🟨 Standard Advance Ticket -->
-<!-- ============================================= -->
 <button class="tt-header" onclick="toggleAccordion('tt3')">🟨 Standard Advance Ticket</button>
 <div class="tt-content" id="tt3">
-
 <div class="tt-field">
 <span class="tt-label">Nombre</span>
 <textarea class="tt-textarea" id="tt3-name" rows="2">🟨 Standard Advance Ticket - Queue Jump & Welcome Drink</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt3-name')">📋 Copy</button>
 </div>
-
 <div class="tt-info">
 <p>💰 Price: 10 £</p>
 <p>🎟️ Tickets: 100 Tickets</p>
 <p>⏰ Sell Until: el dia de la fiesta se vende hasta las 22:00 hrs</p>
 </div>
-
 <div class="tt-field">
 <span class="tt-label">Description</span>
 <textarea class="tt-textarea" id="tt3-desc" rows="16">⭐ Most popular option
@@ -802,28 +507,20 @@ Terms & Conditions
 • No refunds</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt3-desc')">📋 Copy</button>
 </div>
-
 </div>
-<!-- FIN TICKET 3 -->
 
-<!-- ============================================= -->
-<!-- TICKET 4: 🟩 All-In Advance Ticket -->
-<!-- ============================================= -->
 <button class="tt-header" onclick="toggleAccordion('tt4')">🟩 All-In Advance Ticket</button>
 <div class="tt-content" id="tt4">
-
 <div class="tt-field">
 <span class="tt-label">Nombre</span>
 <textarea class="tt-textarea" id="tt4-name" rows="2">🟩 All-In Advance Ticket - No Queues, No Extras</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt4-name')">📋 Copy</button>
 </div>
-
 <div class="tt-info">
 <p>💰 Price: 13 £</p>
 <p>🎟️ Tickets: 100 Tickets</p>
 <p>⏰ Sell Until: el dia de la fiesta se vende hasta las 22:30 hrs</p>
 </div>
-
 <div class="tt-field">
 <span class="tt-label">Description</span>
 <textarea class="tt-textarea" id="tt4-desc" rows="16">🔥 Best value - no extra payments at the door.
@@ -840,28 +537,20 @@ Terms & Conditions
 • No refunds</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt4-desc')">📋 Copy</button>
 </div>
-
 </div>
-<!-- FIN TICKET 4 -->
 
-<!-- ============================================= -->
-<!-- TICKET 5: 🔴 VIP Experience -->
-<!-- ============================================= -->
 <button class="tt-header" onclick="toggleAccordion('tt5')">🔴 VIP Experience</button>
 <div class="tt-content" id="tt5">
-
 <div class="tt-field">
 <span class="tt-label">Nombre</span>
 <textarea class="tt-textarea" id="tt5-name" rows="2">🔴 VIP Experience - Exclusive Areas & Table Service</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt5-name')">📋 Copy</button>
 </div>
-
 <div class="tt-info">
 <p>💰 Price: 20 £</p>
 <p>🎟️ Tickets: 20 Tickets</p>
 <p>⏰ Sell Until: el dia de la fiesta se vende hasta las 3:55 hrs el dia de tequila sundays es 3:25</p>
 </div>
-
 <div class="tt-field">
 <span class="tt-label">Description</span>
 <textarea class="tt-textarea" id="tt5-desc" rows="20">💎 Very limited availability.
@@ -884,29 +573,13 @@ Terms & Conditions
 • No refunds</textarea>
 <button class="tt-copy-btn" onclick="copyField('tt5-desc')">📋 Copy</button>
 </div>
-
 </div>
-<!-- FIN TICKET 5 -->
 
 </div>
 </div>
-<!-- FIN TARJETA: 🎫 Tickets Tool -->
 
 </div>
-<!-- CARD Condordent -->
-
-
-
-
-<!-- Videos y notebook lm wordpress -->
-
-<!-- enlaces a google sheets -->
-
-<!-- meta suites Pool lounge bola 8 -->
-
-<!-- LAnding full experience -->
-
-</div></body>
-<!-- Textos de consulta post, carruseles y como montar un fatsoma  -->
-
+</div>
+</body>
 </html>
+
