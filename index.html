@@ -126,6 +126,11 @@ button{display:block;width:100%;margin-top:4px;padding:8px 10px;border:none;bord
 button:hover{background:#00a8a8;}
 .card br+br{display:none;}
 
+.cred-view{display:inline-block;}
+.cred-edit{display:none;width:100%;max-width:100%;padding:5px 6px;font-size:13px;line-height:1.25;border:1px solid #00caca;border-radius:6px;font-family:Arial, Helvetica, sans-serif;margin-top:2px;}
+.cred-edit-btn{display:inline-block;width:auto;margin-top:8px;margin-right:6px;padding:7px 12px;font-size:12px;}
+.cred-actions{display:flex;flex-wrap:wrap;gap:6px;}
+
 </style>
 </head>
 <body>
@@ -160,97 +165,174 @@ function copiarMapa() {
   alert("Código copiado correctamente.");
 }
 </script>
+
+<!-- ============================================= -->
+<!-- JAVASCRIPT NUEVO - Edición de Usuario/Contraseña -->
+<!-- ============================================= -->
+<script>
+function toggleCred(cardId) {
+  var views = document.querySelectorAll('.cred-view[data-card="' + cardId + '"]');
+  var edits = document.querySelectorAll('.cred-edit[data-card="' + cardId + '"]');
+  var btn = document.getElementById('cred-btn-' + cardId);
+  var editing = btn.getAttribute('data-editing') === 'true';
+
+  if (!editing) {
+    views.forEach(function(v){ v.style.display = 'none'; });
+    edits.forEach(function(e){ e.style.display = 'block'; });
+    btn.textContent = '💾 Guardar';
+    btn.setAttribute('data-editing', 'true');
+  } else {
+    edits.forEach(function(e){
+      var view = document.getElementById(e.getAttribute('data-view-id'));
+      if (view) view.textContent = e.value;
+      try { localStorage.setItem('cred_' + e.id, e.value); } catch(err) {}
+      e.style.display = 'none';
+    });
+    views.forEach(function(v){ v.style.display = 'inline-block'; });
+    btn.textContent = '✏️ Editar';
+    btn.setAttribute('data-editing', 'false');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.cred-edit').forEach(function(e){
+    var saved = null;
+    try { saved = localStorage.getItem('cred_' + e.id); } catch(err) {}
+    if (saved !== null) {
+      e.value = saved;
+      var view = document.getElementById(e.getAttribute('data-view-id'));
+      if (view) view.textContent = saved;
+    }
+  });
+});
+</script>
+
 <div class="card">
 <h2>Condor Dent</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-        
-        </div>
+<span class="cred-view" id="condordent-user-view" data-card="condordent">Stephanie Eusse</span>
+<input class="cred-edit" id="condordent-user-edit" data-card="condordent" data-view-id="condordent-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-        
-        </div>
+<span class="cred-view" id="condordent-pass-view" data-card="condordent">KQ5E%e9TQGH(kzxk</span>
+<input class="cred-edit" id="condordent-pass-edit" data-card="condordent" data-view-id="condordent-pass-view" value="KQ5E%e9TQGH(kzxk"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-condordent" data-editing="false" onclick="toggleCred('condordent')">✏️ Editar</button>
 <a class="btn" href="https://condordent.co.uk/wp-admin" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Estilo del Peluquero</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-     
-        </div>
+<span class="cred-view" id="peluquero-user-view" data-card="peluquero">Stephanie Eusse</span>
+<input class="cred-edit" id="peluquero-user-edit" data-card="peluquero" data-view-id="peluquero-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-        
-        </div>
+<span class="cred-view" id="peluquero-pass-view" data-card="peluquero">d5lb15n)BeqlPh0S</span>
+<input class="cred-edit" id="peluquero-pass-edit" data-card="peluquero" data-view-id="peluquero-pass-view" value="d5lb15n)BeqlPh0S"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-peluquero" data-editing="false" onclick="toggleCred('peluquero')">✏️ Editar</button>
 <a class="btn" href="https://estilodelpeluquero.com/wp-admin" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Bola 8 Fiesta Latina</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-     
-        </div>
+<span class="cred-view" id="bola8fl-user-view" data-card="bola8fl">seussea90@gmail.com /Stephanie</span>
+<input class="cred-edit" id="bola8fl-user-edit" data-card="bola8fl" data-view-id="bola8fl-user-view" value="seussea90@gmail.com /Stephanie"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-    
-        </div>
+<span class="cred-view" id="bola8fl-pass-view" data-card="bola8fl">Ic9m*M#GLpYKWMVH</span>
+<input class="cred-edit" id="bola8fl-pass-edit" data-card="bola8fl" data-view-id="bola8fl-pass-view" value="Ic9m*M#GLpYKWMVH"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-bola8fl" data-editing="false" onclick="toggleCred('bola8fl')">✏️ Editar</button>
 <a class="btn" href="https://bola8.co.uk/Fiesta-Latina" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Pool Lounge</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-  
-        </div>
+<span class="cred-view" id="poollounge-user-view" data-card="poollounge">Stephanie Eusse</span>
+<input class="cred-edit" id="poollounge-user-edit" data-card="poollounge" data-view-id="poollounge-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-    
-        </div>
+<span class="cred-view" id="poollounge-pass-view" data-card="poollounge">ob5B!$!z09Z)cg159*VzbM19</span>
+<input class="cred-edit" id="poollounge-pass-edit" data-card="poollounge" data-view-id="poollounge-pass-view" value="ob5B!$!z09Z)cg159*VzbM19"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-poollounge" data-editing="false" onclick="toggleCred('poollounge')">✏️ Editar</button>
 <a class="btn" href="https://poollounge.co.uk/sportBar" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Morfo</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-   
-    
+<span class="cred-view" id="morfo-user-view" data-card="morfo">Stephanie Eusse</span>
+<input class="cred-edit" id="morfo-user-edit" data-card="morfo" data-view-id="morfo-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-
-        </div>
+<span class="cred-view" id="morfo-pass-view" data-card="morfo">8sDgQozz7zaDSlT)Z6opeVb*</span>
+<input class="cred-edit" id="morfo-pass-edit" data-card="morfo" data-view-id="morfo-pass-view" value="8sDgQozz7zaDSlT)Z6opeVb*"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-morfo" data-editing="false" onclick="toggleCred('morfo')">✏️ Editar</button>
 <a class="btn" href=" https://www.morfomercadeodigital.com/morfo/marketing" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Number one daycare</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-
-        </div>
+<span class="cred-view" id="daycare-user-view" data-card="daycare">Stephanie Eusse</span>
+<input class="cred-edit" id="daycare-user-edit" data-card="daycare" data-view-id="daycare-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-    
-        </div>
+<span class="cred-view" id="daycare-pass-view" data-card="daycare">py)S%9vnY*9gnsYw1K$bG32G</span>
+<input class="cred-edit" id="daycare-pass-edit" data-card="daycare" data-view-id="daycare-pass-view" value="py)S%9vnY*9gnsYw1K$bG32G"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-daycare" data-editing="false" onclick="toggleCred('daycare')">✏️ Editar</button>
 <a class="btn" href=" https://number1daycare.com/wp-admin" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Willow Nursery</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-   
-        </div>
+<span class="cred-view" id="willow-user-view" data-card="willow">Stephanie Eusse</span>
+<input class="cred-edit" id="willow-user-edit" data-card="willow" data-view-id="willow-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Contraseña:</span><br/>
-
-        </div>
+<span class="cred-view" id="willow-pass-view" data-card="willow">LCR%m%%iGF2oiUAmHE0ct@&amp;b</span>
+<input class="cred-edit" id="willow-pass-edit" data-card="willow" data-view-id="willow-pass-view" value="LCR%m%%iGF2oiUAmHE0ct@&amp;b"/>
+</div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-willow" data-editing="false" onclick="toggleCred('willow')">✏️ Editar</button>
 <a class="btn" href="https://thewillownursery.co.uk/wp-admin/" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>🗺️ Google Maps</h2>
 <div class="info">
@@ -316,14 +398,18 @@ function copiarMapa() {
 <h2>Meta suites</h2>
 <div class="info">
 <span class="label">Usuario:</span><br/>
-          Stephanie Eusse
-        </div>
+<span class="cred-view" id="metasuites-user-view" data-card="metasuites">Stephanie Eusse</span>
+<input class="cred-edit" id="metasuites-user-edit" data-card="metasuites" data-view-id="metasuites-user-view" value="Stephanie Eusse"/>
+</div>
 <div class="info">
 <span class="label">Pool Lounge y Bola 8:</span><br/>
 </div>
+<div class="cred-actions">
+<button class="btn cred-edit-btn" id="cred-btn-metasuites" data-editing="false" onclick="toggleCred('metasuites')">✏️ Editar</button>
 <a class="btn" href="  https://business.facebook.com/latest/composer/?asset_id=365883873281782&amp;business_id=196155376148010&amp;ir_qe_exposed=1&amp;nav_ref=internal_nav&amp;ref=biz_web_content_manager_calendar_view&amp;context_ref=CONTENT_CALENDAR" target="_blank">
           Ingresar
         </a>
+</div>
 </div><div class="card">
 <h2>Landing</h2>
 <div class="info">
@@ -446,7 +532,7 @@ Mantén una excelente ortografía y una redacción fluida.
 
 Finaliza únicamente con 15 hashtags relacionados con la fiesta, la música latina, la vida nocturna, Londres, Bola 8 Pool Lounge y el tipo de evento.
 
-No escribas el título "15 hashtags" ni ningún encabezado antes de ellos; simplemente colócalos al final del texto. otra cosa a tener en cuenta: Los djs siempre son: Dj Deoh no Jeoh, Dj Gato no Goto, Dilelucho, Dj Marlon, Chris Rola, Dj SAM, y el sponsor a veces es NOCTURA
+No escribas el título "15 hashtags" ni ningún encabezado antes de ellos; simplemente colócalos al final del texto. Otra cosa para tener en cuenta: Los djs siempre son: Dj Deoh no Jeoh, Dj Gato no Goto, Dilelucho, Dj Marlon, Chris Rola, Dj SAM y a veces el sponsor es NOCTURA
 </textarea>
 <button class="tt-copy-btn" onclick="copyField('post-es')">📋 Copiar</button>
 </div>
@@ -514,7 +600,7 @@ Do not write "15 hashtags" or any heading before them.</textarea>
 <div class="card">
 <h2>🎠 Prompt Carruseles</h2>
 <div class="info">
-<span class="label">🇪🇸 Prompt Carrusel Español</span><br/>
+<span class="label">🇪🇸 Prompt Carrusel</span><br/>
 <textarea class="tt-textarea" id="carousel-es" rows="10">Genera un texto para redes sociales en español latino con un tono urbano, energético, auténtico y atractivo, inspirado en la emoción de una noche inolvidable en Bola 8.
 
 El texto debe acompañar un carrusel de imágenes que capture el mejor ambiente de la fiesta: gente disfrutando, DJ en acción, baile, tragos, luces, amigos y toda la energía de la noche.
