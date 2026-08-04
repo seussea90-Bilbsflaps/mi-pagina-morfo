@@ -131,6 +131,28 @@
     .tt-copy-btn:hover{background:#00a8a8;}
     .tt-info{background:#f2ffff;border-radius:8px;padding:8px;margin-bottom:8px;font-size:12px;color:#444;}
     .tt-info p{margin-bottom:3px;}
+
+    /* ===== Estilos añadidos para las nuevas tarjetas dinámicas ===== */
+    .btn-row{display:flex;gap:4px;}
+    .btn-row button{flex:1;width:auto;margin-top:4px;}
+
+    .btn-add{background:#00e6c3;border:2px dashed #ffffff;color:#004d4d;letter-spacing:.3px;}
+    .btn-add:hover{background:#00cfae;}
+
+    .pt-header{width:100%;text-align:left;background:#00caca;color:#fff;border:none;border-radius:8px;padding:8px 10px;font-weight:bold;font-size:13px;cursor:pointer;margin-top:6px;}
+    .pt-header:hover{background:#00a8a8;}
+    .pt-content{display:none;padding:8px 4px;}
+
+    .pt-lang-header{width:100%;text-align:left;background:#00a8a8;color:#fff;border:none;border-radius:8px;padding:6px 8px;font-weight:bold;font-size:12px;cursor:pointer;margin-top:4px;}
+    .pt-lang-header:hover{background:#008080;}
+    .pt-lang-content{display:none;padding:6px 2px;}
+
+    .pt-name-input{width:100%;padding:6px;margin-top:6px;margin-bottom:4px;font-size:13px;border:1px solid #cfe9e9;border-radius:6px;font-family:Arial,Helvetica,sans-serif;}
+
+    .post-image-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+    .post-image-row .tt-copy-btn{width:auto;flex:none;padding:6px 8px;margin-top:0;}
+    .post-thumb{width:60px;height:34px;object-fit:cover;border-radius:6px;border:1px solid #cfe9e9;}
+    .post-thumb-empty{font-size:11px;color:#888;}
 </style>
 </head>
 <body>
@@ -578,8 +600,320 @@ Terms & Conditions
 </div>
 </div>
 
+<div class="card">
+<h2>🔗 Fatsoma (Enlaces a eventos)</h2>
+<div class="info">Aquí puedes guardar temporalmente los enlaces de tus eventos de Fatsoma.</div>
+<div id="fatsoma-links-container"></div>
+<button class="btn-add" onclick="addFatsomaLink()">➕ Añadir nuevo enlace</button>
+</div>
+
+<div class="card">
+<h2>📝 Posts</h2>
+<div class="info">Aquí puedes guardar los textos de tus posts para copiarlos con facilidad.</div>
+<div id="posts-container"></div>
+<button class="btn-add" onclick="addPost()">➕ Añadir más posts</button>
+</div>
+
+<div class="card">
+<h2>🎠 Carruseles para copiar y pegar</h2>
+<div class="info">Aquí puedes guardar los textos de tus carruseles para copiarlos fácilmente.</div>
+<div id="carousels-container"></div>
+<button class="btn-add" onclick="addCarousel()">➕ Añadir nuevo carrusel</button>
+</div>
+
+<div class="card">
+<h2>🎫 Event Widget Fatsoma</h2>
+<div class="info">Aquí puedes guardar el código HTML de los Event Widgets de Fatsoma.</div>
+<div id="events-container"></div>
+<button class="btn-add" onclick="addEvent()">➕ Añadir evento</button>
+</div>
+
+<div class="card">
+<h2>🔗 Fatsoma y Eventbrite</h2>
+<div class="info">Enlaces directos a tus plataformas de venta de entradas.</div>
+<a class="btn" href="https://fatsoma.com" target="_blank">Abrir Fatsoma</a>
+<a class="btn" href="https://www.eventbrite.com" target="_blank">Abrir Eventbrite</a>
+</div>
+
 </div>
 </div>
+
+<script>
+/* ============================================================
+   NUEVO BLOQUE DE FUNCIONALIDAD — TARJETAS DINÁMICAS
+   Funciones reutilizables: localStorage, editar/guardar, copiar,
+   acordeones y creación de bloques nuevos.
+   ============================================================ */
+
+/* ---------- Almacenamiento (localStorage) ---------- */
+function getLS(key, fallback){
+  try{
+    var raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  }catch(e){ return fallback; }
+}
+function setLS(key, value){
+  try{ localStorage.setItem(key, JSON.stringify(value)); }
+  catch(e){ console.error('No se pudo guardar en localStorage', e); }
+}
+function escapeHtml(str){
+  if(!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ---------- Editar / Guardar reutilizable para cualquier caja ---------- */
+function editBox(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.disabled = false;
+  el.focus();
+  var editBtn = document.getElementById(id+'-edit');
+  var saveBtn = document.getElementById(id+'-save');
+  if(editBtn) editBtn.style.display = 'none';
+  if(saveBtn) saveBtn.style.display = 'block';
+}
+function saveBox(id, handlerKey, index){
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.disabled = true;
+  var editBtn = document.getElementById(id+'-edit');
+  var saveBtn = document.getElementById(id+'-save');
+  if(saveBtn) saveBtn.style.display = 'none';
+  if(editBtn) editBtn.style.display = 'block';
+  if(saveHandlers[handlerKey]) saveHandlers[handlerKey](index, el.value);
+}
+
+/* ---------- Acordeones reutilizables (independientes por grupo) ---------- */
+function togglePostBody(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+}
+function toggleLang(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  var group = el.parentElement;
+  var items = group.querySelectorAll('.lang-content');
+  items.forEach(function(it){
+    if(it === el){ it.style.display = (it.style.display === 'block') ? 'none' : 'block'; }
+    else{ it.style.display = 'none'; }
+  });
+}
+
+/* ================= TARJETA 1: Fatsoma enlaces ================= */
+/* Migración: si los datos guardados son del formato antiguo (solo texto),
+   se convierten al nuevo formato {title, value} sin perder lo ya guardado. */
+var rawFatsomaLinks = getLS('dash_fatsoma_links', ['', '', '']);
+var fatsomaLinks = rawFatsomaLinks.map(function(item){
+  return (typeof item === 'string') ? {title:'', value:item} : item;
+});
+function renderFatsomaLinks(){
+  var c = document.getElementById('fatsoma-links-container');
+  c.innerHTML = fatsomaLinks.map(function(item, i){
+    var id = 'fl-' + i;
+    var titleId = 'fl-' + i + '-title';
+    var displayTitle = (item.title && item.title.trim()) ? item.title : ('Enlace ' + (i+1));
+    return '<div class="info">'
+      + '<span class="label" id="' + titleId + '-label">' + escapeHtml(displayTitle) + '</span>'
+      + '<input type="text" class="pt-name-input" id="' + titleId + '" value="' + escapeHtml(item.title) + '" placeholder="Enlace ' + (i+1) + '" oninput="updateFatsomaTitle(' + i + ', this.value)"/>'
+      + '<textarea class="tt-textarea" id="' + id + '" rows="2" disabled>' + escapeHtml(item.value) + '</textarea>'
+      + '<div class="btn-row">'
+      + '<button class="tt-copy-btn" id="' + id + '-edit" onclick="editBox(\'' + id + '\')">✏️ Editar</button>'
+      + '<button class="tt-copy-btn" id="' + id + '-save" style="display:none" onclick="saveBox(\'' + id + '\',\'fatsomaLink\',' + i + ')">💾 Guardar</button>'
+      + '<button class="tt-copy-btn" onclick="copyField(\'' + id + '\')">📋 Copiar</button>'
+      + '</div></div>';
+  }).join('');
+}
+function updateFatsomaTitle(i, value){
+  fatsomaLinks[i].title = value;
+  setLS('dash_fatsoma_links', fatsomaLinks);
+  var label = document.getElementById('fl-' + i + '-title-label');
+  if(label) label.textContent = (value && value.trim()) ? value : ('Enlace ' + (i+1));
+}
+function addFatsomaLink(){
+  fatsomaLinks.push({title:'', value:''});
+  setLS('dash_fatsoma_links', fatsomaLinks);
+  renderFatsomaLinks();
+}
+
+/* ================= TARJETA 2: Posts ================= */
+var posts = getLS('dash_posts', [
+  {name:'', image:'', es:'', en:''},
+  {name:'', image:'', es:'', en:''},
+  {name:'', image:'', es:'', en:''}
+]);
+function renderPosts(){
+  var c = document.getElementById('posts-container');
+  c.innerHTML = posts.map(function(p, i){
+    var title = (p.name && p.name.trim()) ? p.name : ('Post ' + (i+1));
+    var esId = 'post-' + i + '-es', enId = 'post-' + i + '-en', bodyId = 'post-' + i + '-body', nameId = 'post-' + i + '-name';
+    var esTa = esId + '-ta', enTa = enId + '-ta';
+    var imgHtml = p.image
+      ? '<img class="post-thumb" id="post-' + i + '-img" src="' + p.image + '"/><button class="tt-copy-btn" onclick="removePostImage(' + i + ')">🗑️ Eliminar imagen</button>'
+      : '<span class="post-thumb-empty" id="post-' + i + '-img">Sin imagen</span>';
+    return ''
+    + '<button class="pt-header" id="post-' + i + '-title" onclick="togglePostBody(\'' + bodyId + '\')">' + escapeHtml(title) + '</button>'
+    + '<div class="pt-content" id="' + bodyId + '">'
+      + '<div class="post-image-row">'
+        + '<input type="file" accept="image/*" id="post-' + i + '-img-file" style="display:none" onchange="handlePostImage(event,' + i + ')">'
+        + '<button class="tt-copy-btn" onclick="document.getElementById(\'post-' + i + '-img-file\').click()">🖼️ Seleccionar imagen</button>'
+        + imgHtml
+      + '</div>'
+      + '<input type="text" class="pt-name-input" id="' + nameId + '" value="' + escapeHtml(p.name) + '" placeholder="Post ' + (i+1) + '" oninput="updatePostName(' + i + ', this.value)"/>'
+      + '<div class="pt-lang-group">'
+        + '<button class="pt-lang-header" onclick="toggleLang(\'' + esId + '\')">🇪🇸 Español</button>'
+        + '<div class="pt-lang-content lang-content" id="' + esId + '">'
+          + '<textarea class="tt-textarea" id="' + esTa + '" rows="6" disabled>' + escapeHtml(p.es) + '</textarea>'
+          + '<div class="btn-row">'
+          + '<button class="tt-copy-btn" id="' + esTa + '-edit" onclick="editBox(\'' + esTa + '\')">✏️ Editar</button>'
+          + '<button class="tt-copy-btn" id="' + esTa + '-save" style="display:none" onclick="saveBox(\'' + esTa + '\',\'postEs\',' + i + ')">💾 Guardar</button>'
+          + '<button class="tt-copy-btn" onclick="copyField(\'' + esTa + '\')">📋 Copiar</button>'
+          + '</div>'
+        + '</div>'
+        + '<button class="pt-lang-header" onclick="toggleLang(\'' + enId + '\')">🇬🇧 English</button>'
+        + '<div class="pt-lang-content lang-content" id="' + enId + '">'
+          + '<textarea class="tt-textarea" id="' + enTa + '" rows="6" disabled>' + escapeHtml(p.en) + '</textarea>'
+          + '<div class="btn-row">'
+          + '<button class="tt-copy-btn" id="' + enTa + '-edit" onclick="editBox(\'' + enTa + '\')">✏️ Editar</button>'
+          + '<button class="tt-copy-btn" id="' + enTa + '-save" style="display:none" onclick="saveBox(\'' + enTa + '\',\'postEn\',' + i + ')">💾 Guardar</button>'
+          + '<button class="tt-copy-btn" onclick="copyField(\'' + enTa + '\')">📋 Copiar</button>'
+          + '</div>'
+        + '</div>'
+      + '</div>'
+    + '</div>';
+  }).join('');
+}
+function updatePostName(i, value){
+  posts[i].name = value;
+  setLS('dash_posts', posts);
+  var titleBtn = document.getElementById('post-' + i + '-title');
+  if(titleBtn) titleBtn.textContent = (value && value.trim()) ? value : ('Post ' + (i+1));
+}
+function handlePostImage(event, i){
+  var file = event.target.files && event.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var img = new Image();
+    img.onload = function(){
+      var maxDim = 160;
+      var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      posts[i].image = canvas.toDataURL('image/jpeg', 0.7);
+      setLS('dash_posts', posts);
+      updatePostImageDom(i);
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function updatePostImageDom(i){
+  var row = document.querySelector('#post-' + i + '-body .post-image-row');
+  if(!row) return;
+  var imgHtml = posts[i].image
+    ? '<img class="post-thumb" id="post-' + i + '-img" src="' + posts[i].image + '"/><button class="tt-copy-btn" onclick="removePostImage(' + i + ')">🗑️ Eliminar imagen</button>'
+    : '<span class="post-thumb-empty" id="post-' + i + '-img">Sin imagen</span>';
+  row.innerHTML = '<input type="file" accept="image/*" id="post-' + i + '-img-file" style="display:none" onchange="handlePostImage(event,' + i + ')">'
+    + '<button class="tt-copy-btn" onclick="document.getElementById(\'post-' + i + '-img-file\').click()">🖼️ Seleccionar imagen</button>'
+    + imgHtml;
+}
+function removePostImage(i){
+  posts[i].image = '';
+  setLS('dash_posts', posts);
+  updatePostImageDom(i);
+}
+function addPost(){
+  posts.push({name:'', image:'', es:'', en:''});
+  setLS('dash_posts', posts);
+  renderPosts();
+}
+
+/* ================= TARJETA 3: Carruseles ================= */
+var carousels = getLS('dash_carousels', [
+  {es:'', en:''},
+  {es:'', en:''}
+]);
+function renderCarousels(){
+  var c = document.getElementById('carousels-container');
+  c.innerHTML = carousels.map(function(item, i){
+    var esId = 'car-' + i + '-es', enId = 'car-' + i + '-en', bodyId = 'car-' + i + '-body';
+    var esTa = esId + '-ta', enTa = enId + '-ta';
+    return ''
+    + '<button class="pt-header" onclick="togglePostBody(\'' + bodyId + '\')">Carrusel ' + (i+1) + '</button>'
+    + '<div class="pt-content" id="' + bodyId + '">'
+      + '<div class="pt-lang-group">'
+        + '<button class="pt-lang-header" onclick="toggleLang(\'' + esId + '\')">🇪🇸 Español - Bola 8</button>'
+        + '<div class="pt-lang-content lang-content" id="' + esId + '">'
+          + '<textarea class="tt-textarea" id="' + esTa + '" rows="8" disabled>' + escapeHtml(item.es) + '</textarea>'
+          + '<div class="btn-row">'
+          + '<button class="tt-copy-btn" id="' + esTa + '-edit" onclick="editBox(\'' + esTa + '\')">✏️ Editar</button>'
+          + '<button class="tt-copy-btn" id="' + esTa + '-save" style="display:none" onclick="saveBox(\'' + esTa + '\',\'carouselEs\',' + i + ')">💾 Guardar</button>'
+          + '<button class="tt-copy-btn" onclick="copyField(\'' + esTa + '\')">📋 Copiar</button>'
+          + '</div>'
+        + '</div>'
+        + '<button class="pt-lang-header" onclick="toggleLang(\'' + enId + '\')">🇬🇧 Inglés - Pool Lounge</button>'
+        + '<div class="pt-lang-content lang-content" id="' + enId + '">'
+          + '<textarea class="tt-textarea" id="' + enTa + '" rows="8" disabled>' + escapeHtml(item.en) + '</textarea>'
+          + '<div class="btn-row">'
+          + '<button class="tt-copy-btn" id="' + enTa + '-edit" onclick="editBox(\'' + enTa + '\')">✏️ Editar</button>'
+          + '<button class="tt-copy-btn" id="' + enTa + '-save" style="display:none" onclick="saveBox(\'' + enTa + '\',\'carouselEn\',' + i + ')">💾 Guardar</button>'
+          + '<button class="tt-copy-btn" onclick="copyField(\'' + enTa + '\')">📋 Copiar</button>'
+          + '</div>'
+        + '</div>'
+      + '</div>'
+    + '</div>';
+  }).join('');
+}
+function addCarousel(){
+  carousels.push({es:'', en:''});
+  setLS('dash_carousels', carousels);
+  renderCarousels();
+}
+
+/* ================= TARJETA 4: Event Widget Fatsoma ================= */
+var events = getLS('dash_events', ['']);
+function renderEvents(){
+  var c = document.getElementById('events-container');
+  c.innerHTML = events.map(function(val, i){
+    var id = 'ev-' + i;
+    var label = (i === 0) ? 'Full Experience' : ('Evento ' + (i+1));
+    return '<div class="info">'
+      + '<span class="label">' + label + '</span><br/>'
+      + '<textarea class="tt-textarea" id="' + id + '" rows="6" disabled>' + escapeHtml(val) + '</textarea>'
+      + '<div class="btn-row">'
+      + '<button class="tt-copy-btn" id="' + id + '-edit" onclick="editBox(\'' + id + '\')">✏️ Editar</button>'
+      + '<button class="tt-copy-btn" id="' + id + '-save" style="display:none" onclick="saveBox(\'' + id + '\',\'event\',' + i + ')">💾 Guardar</button>'
+      + '<button class="tt-copy-btn" onclick="copyField(\'' + id + '\')">📋 Copiar</button>'
+      + '</div></div>';
+  }).join('');
+}
+function addEvent(){
+  events.push('');
+  setLS('dash_events', events);
+  renderEvents();
+}
+
+/* ---------- Manejadores de guardado usados por saveBox() ---------- */
+var saveHandlers = {
+  fatsomaLink: function(i, value){ fatsomaLinks[i].value = value; setLS('dash_fatsoma_links', fatsomaLinks); },
+  postEs: function(i, value){ posts[i].es = value; setLS('dash_posts', posts); },
+  postEn: function(i, value){ posts[i].en = value; setLS('dash_posts', posts); },
+  carouselEs: function(i, value){ carousels[i].es = value; setLS('dash_carousels', carousels); },
+  carouselEn: function(i, value){ carousels[i].en = value; setLS('dash_carousels', carousels); },
+  event: function(i, value){ events[i] = value; setLS('dash_events', events); }
+};
+
+/* ---------- Inicialización: pintar todas las tarjetas nuevas ---------- */
+renderFatsomaLinks();
+renderPosts();
+renderCarousels();
+renderEvents();
+</script>
+
 </body>
 </html>
 
